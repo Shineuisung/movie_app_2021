@@ -1,25 +1,32 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route,Routes } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,Routes,HashRouter } from "react-router-dom";
 import Detail from "./routers/Detail";
 import Home from "./routers/Home"
+import Navigation from "./components/Navigation";
 
 function App() {
 
   return (
-    <Router>
-      <Switch>
-    <Route path="/movie/:id">
-          <Detail />
-        </Route>
-      <Route path="/">
-        <Home />
-      </Route>
+  //   <Router>
+  //     <Switch>
+  //     <Navigation />
+  //   <Route path="/movie/:id">
+  //         <Detail />
+  //       </Route>
+  //     <Route path="/">
+  //       <Home />
+  //     </Route>
 
-    </Switch>
-  </Router>
+  //   </Switch>
+  // </Router>
 
  
-
+  <HashRouter>
+  <Navigation />
+  <Route path="/" exact={true} component={Home} />
+  
+  <Route path="/movie/:id" component={Detail} />
+</HashRouter>
 
     
     );
